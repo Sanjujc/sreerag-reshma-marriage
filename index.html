@@ -22,7 +22,7 @@
     
     <!-- Web Components Scripts -->
     <script src="components/countdown.js" defer></script>
-    <script src="components/scratchcard.js" defer></script>
+
 </head>
 
 <body>
@@ -48,6 +48,47 @@
 
     <!-- Ambient Glowing Backgrounds -->
     <div class="ambient-bg"></div>
+    
+    <!-- Traditional Gold Arch & Hanging Lamps (Kalyana Mandapam theme) -->
+    <div class="mandapam-top-decoration">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Double gold fine line curves -->
+            <path d="M0 10 Q 300 35, 600 15 Q 900 35, 1200 10" fill="none" stroke="url(#goldGradient)" stroke-width="1.5" opacity="0.8"/>
+            <path d="M0 16 Q 300 41, 600 21 Q 900 41, 1200 16" fill="none" stroke="url(#goldGradient)" stroke-width="0.75" stroke-dasharray="3 3" opacity="0.6"/>
+            
+            <!-- Floral center crest -->
+            <g transform="translate(600, 18) scale(0.6)">
+                <path d="M0 -15 C-10 -5 -25 0 -25 15 C-25 25 -15 30 0 20 C15 30 25 25 25 15 C25 0 10 -5 0 -15 Z" fill="url(#goldGradient)"/>
+                <circle cx="0" cy="28" r="3" fill="url(#goldGradient)"/>
+            </g>
+            
+            <!-- Hanging Gold Temple Lamps (Diyas) - extremely elegant, clean, non-suggestive -->
+            <g transform="translate(150, 0)">
+                <line x1="0" y1="0" x2="0" y2="70" stroke="url(#goldGradient)" stroke-width="0.75" stroke-dasharray="2 2"/>
+                <path d="M-12 70 C-12 82, 12 82, 12 70 Z" fill="none" stroke="url(#goldGradient)" stroke-width="1.2"/>
+                <line x1="-12" y1="70" x2="12" y2="70" stroke="url(#goldGradient)" stroke-width="1"/>
+                <path d="M0 70 C-3 62, 0 54, 0 54 C0 54, 3 62, 0 70 Z" fill="url(#goldGradient)"/>
+            </g>
+            <g transform="translate(350, 0)">
+                <line x1="0" y1="0" x2="0" y2="90" stroke="url(#goldGradient)" stroke-width="0.75" stroke-dasharray="2 2"/>
+                <path d="M-12 90 C-12 102, 12 102, 12 90 Z" fill="none" stroke="url(#goldGradient)" stroke-width="1.2"/>
+                <line x1="-12" y1="90" x2="12" y2="90" stroke="url(#goldGradient)" stroke-width="1"/>
+                <path d="M0 90 C-3 82, 0 74, 0 74 C0 74, 3 82, 0 90 Z" fill="url(#goldGradient)"/>
+            </g>
+            <g transform="translate(850, 0)">
+                <line x1="0" y1="0" x2="0" y2="90" stroke="url(#goldGradient)" stroke-width="0.75" stroke-dasharray="2 2"/>
+                <path d="M-12 90 C-12 102, 12 102, 12 90 Z" fill="none" stroke="url(#goldGradient)" stroke-width="1.2"/>
+                <line x1="-12" y1="90" x2="12" y2="90" stroke="url(#goldGradient)" stroke-width="1"/>
+                <path d="M0 90 C-3 82, 0 74, 0 74 C0 74, 3 82, 0 90 Z" fill="url(#goldGradient)"/>
+            </g>
+            <g transform="translate(1050, 0)">
+                <line x1="0" y1="0" x2="0" y2="70" stroke="url(#goldGradient)" stroke-width="0.75" stroke-dasharray="2 2"/>
+                <path d="M-12 70 C-12 82, 12 82, 12 70 Z" fill="none" stroke="url(#goldGradient)" stroke-width="1.2"/>
+                <line x1="-12" y1="70" x2="12" y2="70" stroke="url(#goldGradient)" stroke-width="1"/>
+                <path d="M0 70 C-3 62, 0 54, 0 54 C0 54, 3 62, 0 70 Z" fill="url(#goldGradient)"/>
+            </g>
+        </svg>
+    </div>
     
     <!-- Lotus Flower Falling Canvas Engine -->
     <canvas id="petalCanvas"></canvas>
@@ -380,8 +421,7 @@
         <!-- Live Countdown Timer -->
         <countdown-timer target-date="2026-08-27T10:55:00"></countdown-timer>
 
-        <!-- Scratch Card to Reveal Date -->
-        <scratch-card></scratch-card>
+
 
         <!-- Message and Family Blessings Closing -->
         <div class="invitation-footer fade-up">

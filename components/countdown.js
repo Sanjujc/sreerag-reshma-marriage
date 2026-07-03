@@ -21,17 +21,29 @@ class CountdownTimer extends HTMLElement {
                     align-items: center; 
                 }
                 .countdown-ring {
-                    width: 90px;
-                    height: 90px;
+                    width: 95px;
+                    height: 95px;
                     border-radius: 50%;
                     border: 1px solid var(--accent-gold);
-                    background: rgba(253, 251, 247, 0.8);
+                    background: rgba(253, 251, 247, 0.9);
                     display: flex;
                     flex-direction: column;
                     align-items: center;
                     justify-content: center;
-                    box-shadow: 0 8px 20px rgba(125, 26, 41, 0.05), inset 0 0 10px rgba(223, 177, 91, 0.05);
+                    box-shadow: 0 8px 22px rgba(125, 26, 41, 0.04), inset 0 0 15px rgba(223, 177, 91, 0.08);
                     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+                    position: relative;
+                }
+                .countdown-ring::before {
+                    content: '';
+                    position: absolute;
+                    top: 3px;
+                    left: 3px;
+                    right: 3px;
+                    bottom: 3px;
+                    border: 0.5px dashed rgba(223, 177, 91, 0.3);
+                    border-radius: 50%;
+                    pointer-events: none;
                 }
                 .countdown-ring:hover {
                     border-color: var(--primary-crimson);

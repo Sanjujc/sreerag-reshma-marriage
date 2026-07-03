@@ -144,7 +144,7 @@ let isPlaying = false;
 let isMuted = true;
 
 const playIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`;
-const pauseIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`;
+const pauseIcon = `<div class="music-wave playing"><span></span><span></span><span></span><span></span></div>`;
 
 const unmuteOnInteraction = () => {
     if (!bgMusic || !isMuted) return;
@@ -224,7 +224,7 @@ if (canvas) {
     const ctx = canvas.getContext('2d');
     let width, height;
     let petals = [];
-    const maxPetals = 45; // Gentle flutter
+    const maxPetals = 85; // Festive dense rose petal shower
 
     const resize = () => {
         width = window.innerWidth;
@@ -281,10 +281,11 @@ if (canvas) {
             ctx.bezierCurveTo(this.size / 2, this.size / 2, this.size / 2, -this.size / 6, 0, -this.size / 2);
             ctx.closePath();
             
-            // Premium linear gradient inside the petal (pale pink to deep rose maroon)
+            // Premium linear gradient inside the petal (crimson rose red to deep velvet maroon)
             const grad = ctx.createLinearGradient(0, -this.size / 2, 0, this.size);
-            grad.addColorStop(0, `rgba(255, 185, 200, ${this.opacity})`); // Pale rose petal tip
-            grad.addColorStop(1, `rgba(200, 48, 80, ${this.opacity * 0.85})`); // Richer rose maroon base
+            grad.addColorStop(0, `rgba(255, 80, 100, ${this.opacity})`); // Vibrant rose red tip
+            grad.addColorStop(0.6, `rgba(200, 30, 55, ${this.opacity})`); // Crimson body
+            grad.addColorStop(1, `rgba(100, 15, 25, ${this.opacity * 0.95})`); // Deep velvet maroon base
             
             ctx.fillStyle = grad;
             ctx.fill();
