@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sreerag & Reshma | Wedding Invitation</title>
+    
+    <!-- SEO and Social Sharing Tags -->
+    <meta name="description" content="Together with our families, we warmly invite you to join us in celebrating and blessing the wedding of Sreerag & Reshma.">
+    <meta property="og:title" content="Sreerag & Reshma | Wedding Invitation">
+    <meta property="og:description" content="Together with our families, we warmly invite you to join us in celebrating and blessing the wedding of Sreerag & Reshma.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1200">
+    
+    <!-- Google Fonts: Cinzel (Luxury headings), Playfair Display (Serif bodies), Montserrat (Clean body details) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+    
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Web Components Scripts -->
+    <script src="components/countdown.js" defer></script>
+    <script src="components/scratchcard.js" defer></script>
+</head>
+
+<body>
+    <!-- Door/Envelope Opening Intro Overlay -->
+    <div class="intro-overlay" id="introOverlay">
+        <div class="door left-door">
+            <div class="door-ornament left-ornament"></div>
+        </div>
+        <div class="door right-door">
+            <div class="door-ornament right-ornament"></div>
+        </div>
+        <div class="door-seal magnetic-item" id="enterBtn">
+            <div class="seal-inner">
+                <span class="seal-monogram">S&amp;R</span>
+                <span class="seal-prompt">Open Card</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor Trails -->
+    <div class="cursor-trail"></div>
+    <div class="cursor-dot"></div>
+
+    <!-- Ambient Glowing Backgrounds -->
+    <div class="ambient-bg"></div>
+    
+    <!-- Lotus Flower Falling Canvas Engine -->
+    <canvas id="petalCanvas"></canvas>
+
+    <!-- Floating Navbar Header -->
+    <nav class="navbar">
+        <div class="nav-logo fade-up">
+            <svg width="34" height="34" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="19" stroke="#dfb15b" stroke-width="1" />
+                <path d="M12 28 C 12 18, 28 18, 28 28" stroke="rgba(223, 177, 91, 0.4)" stroke-width="1" />
+                <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" font-family="'Cinzel', serif" font-size="12" fill="#7d1a29">S&amp;R</text>
+            </svg>
+            <div class="nav-logo-text">
+                <span class="nav-logo-names">Sreerag &amp; Reshma</span>
+                <span class="nav-logo-date">27 August 2026</span>
+            </div>
+        </div>
+        <ul class="nav-links fade-up">
+            <li><a href="#home" class="magnetic-item">Invitation</a></li>
+            <li><a href="#details" class="magnetic-item">Details</a></li>
+        </ul>
+        <div class="audio-control magnetic-item fade-up" id="audioToggle">
+            <!-- Play icon default -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+        </div>
+        <audio id="bgMusic" loop preload="auto" muted autoplay>
+            <source src="audio/Jashn%20E%20Bahaaraa%20Instrumental%20Flute%20Jodhaa%20Akbar%20320%20Kbps.mp3" type="audio/mpeg">
+        </audio>
+    </nav>
+
+    <!-- Side Vertical Lotus Borders (matching the reference print card design) -->
+    <div class="lotus-border-left lotus-decor">
+        <!-- Reusable Lotus SVG -->
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 20 C35 35, 10 50, 20 70 C30 85, 45 80, 50 65 C55 80, 70 85, 80 70 C90 50, 65 35, 50 20 Z" fill="url(#lotusG)" />
+            <path d="M50 30 C40 45, 20 55, 30 70 C38 80, 48 75, 50 65 C52 75, 62 80, 70 70 C80 55, 60 45, 50 30 Z" fill="url(#lotusIG)" />
+            <path d="M50 35 C45 45, 35 60, 50 80 C65 60, 55 45, 50 35 Z" fill="url(#lotusCG)" />
+            <path d="M50 72 C43 78, 30 76, 25 80 C35 88, 50 81, 50 81 C50 81, 65 88, 75 80 C70 76, 57 78, 50 72 Z" fill="#295525" />
+            <defs>
+                <linearGradient id="lotusG" x1="50" y1="20" x2="50" y2="80" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#ffb3c6" /><stop offset="100%" stop-color="#c83050" />
+                </linearGradient>
+                <linearGradient id="lotusIG" x1="50" y1="30" x2="50" y2="75" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#ffd3e0" /><stop offset="100%" stop-color="#ab1837" />
+                </linearGradient>
+                <linearGradient id="lotusCG" x1="50" y1="35" x2="50" y2="80" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#ffffff" /><stop offset="100%" stop-color="#db3069" />
+                </linearGradient>
+            </defs>
+        </svg>
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 20 C35 35, 10 50, 20 70 C30 85, 45 80, 50 65 C55 80, 70 85, 80 70 C90 50, 65 35, 50 20 Z" fill="url(#lotusG)" />
+            <path d="M50 30 C40 45, 20 55, 30 70 C38 80, 48 75, 50 65 C52 75, 62 80, 70 70 C80 55, 60 45, 50 30 Z" fill="url(#lotusIG)" />
+            <path d="M50 35 C45 45, 35 60, 50 80 C65 60, 55 45, 50 35 Z" fill="url(#lotusCG)" />
+            <path d="M50 72 C43 78, 30 76, 25 80 C35 88, 50 81, 50 81 C50 81, 65 88, 75 80 C70 76, 57 78, 50 72 Z" fill="#295525" />
+        </svg>
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 20 C35 35, 10 50, 20 70 C30 85, 45 80, 50 65 C55 80, 70 85, 80 70 C90 50, 65 35, 50 20 Z" fill="url(#lotusG)" />
+            <path d="M50 30 C40 45, 20 55, 30 70 C38 80, 48 75, 50 65 C52 75, 62 80, 70 70 C80 55, 60 45, 50 30 Z" fill="url(#lotusIG)" />
+            <path d="M50 35 C45 45, 35 60, 50 80 C65 60, 55 45, 50 35 Z" fill="url(#lotusCG)" />
+            <path d="M50 72 C43 78, 30 76, 25 80 C35 88, 50 81, 50 81 C50 81, 65 88, 75 80 C70 76, 57 78, 50 72 Z" fill="#295525" />
+        </svg>
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 20 C35 35, 10 50, 20 70 C30 85, 45 80, 50 65 C55 80, 70 85, 80 70 C90 50, 65 35, 50 20 Z" fill="url(#lotusG)" />
+            <path d="M50 30 C40 45, 20 55, 30 70 C38 80, 48 75, 50 65 C52 75, 62 80, 70 70 C80 55, 60 45, 50 30 Z" fill="url(#lotusIG)" />
+            <path d="M50 35 C45 45, 35 60, 50 80 C65 60, 55 45, 50 35 Z" fill="url(#lotusCG)" />
+            <path d="M50 72 C43 78, 30 76, 25 80 C35 88, 50 81, 50 81 C50 81, 65 88, 75 80 C70 76, 57 78, 50 72 Z" fill="#295525" />
+        </svg>
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 20 C35 35, 10 50, 20 70 C30 85, 45 80, 50 65 C55 80, 70 85, 80 70 C90 50, 65 35, 50 20 Z" fill="url(#lotusG)" />
+            <path d="M50 30 C40 45, 20 55, 30 70 C38 80, 48 75, 50 65 C52 75, 62 80, 70 70 C80 55, 60 45, 50 30 Z" fill="url(#lotusIG)" />
+            <path d="M50 35 C45 45, 35 60, 50 80 C65 60, 55 45, 50 35 Z" fill="url(#lotusCG)" />
+            <path d="M50 72 C43 78, 30 76, 25 80 C35 88, 50 81, 50 81 C50 81, 65 88, 75 80 C70 76, 57 78, 50 72 Z" fill="#295525" />
+        </svg>
+    </div>
+
+    <div class="lotus-border-right lotus-decor">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 20 C35 35, 10 50, 20 70 C30 85, 45 80, 50 65 C55 80, 70 85, 80 70 C90 50, 65 35, 50 20 Z" fill="url(#lotusG)" />
+            <path d="M50 30 C40 45, 20 55, 30 70 C38 80, 48 75, 50 65 C52 75, 62 80, 70 70 C80 55, 60 45, 50 30 Z" fill="url(#lotusIG)" />
+            <path d="M50 35 C45 45, 35 60, 50 80 C65 60, 55 45, 50 35 Z" fill="url(#lotusCG)" />
+            <path d="M50 72 C43 78, 30 76, 25 80 C35 88, 50 81, 50 81 C50 81, 65 88, 75 80 C70 76, 57 78, 50 72 Z" fill="#295525" />
+        </svg>
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 20 C35 35, 10 50, 20 70 C30 85, 45 80, 50 65 C55 80, 70 85, 80 70 C90 50, 65 35, 50 20 Z" fill="url(#lotusG)" />
+            <path d="M50 30 C40 45, 20 55, 30 70 C38 80, 48 75, 50 65 C52 75, 62 80, 70 70 C80 55, 60 45, 50 30 Z" fill="url(#lotusIG)" />
+            <path d="M50 35 C45 45, 35 60, 50 80 C65 60, 55 45, 50 35 Z" fill="url(#lotusCG)" />
+            <path d="M50 72 C43 78, 30 76, 25 80 C35 88, 50 81, 50 81 C50 81, 65 88, 75 80 C70 76, 57 78, 50 72 Z" fill="#295525" />
+        </svg>
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 20 C35 35, 10 50, 20 70 C30 85, 45 80, 50 65 C55 80, 70 85, 80 70 C90 50, 65 35, 50 20 Z" fill="url(#lotusG)" />
+            <path d="M50 30 C40 45, 20 55, 30 70 C38 80, 48 75, 50 65 C52 75, 62 80, 70 70 C80 55, 60 45, 50 30 Z" fill="url(#lotusIG)" />
+            <path d="M50 35 C45 45, 35 60, 50 80 C65 60, 55 45, 50 35 Z" fill="url(#lotusCG)" />
+            <path d="M50 72 C43 78, 30 76, 25 80 C35 88, 50 81, 50 81 C50 81, 65 88, 75 80 C70 76, 57 78, 50 72 Z" fill="#295525" />
+        </svg>
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 20 C35 35, 10 50, 20 70 C30 85, 45 80, 50 65 C55 80, 70 85, 80 70 C90 50, 65 35, 50 20 Z" fill="url(#lotusG)" />
+            <path d="M50 30 C40 45, 20 55, 30 70 C38 80, 48 75, 50 65 C52 75, 62 80, 70 70 C80 55, 60 45, 50 30 Z" fill="url(#lotusIG)" />
+            <path d="M50 35 C45 45, 35 60, 50 80 C65 60, 55 45, 50 35 Z" fill="url(#lotusCG)" />
+            <path d="M50 72 C43 78, 30 76, 25 80 C35 88, 50 81, 50 81 C50 81, 65 88, 75 80 C70 76, 57 78, 50 72 Z" fill="#295525" />
+        </svg>
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 20 C35 35, 10 50, 20 70 C30 85, 45 80, 50 65 C55 80, 70 85, 80 70 C90 50, 65 35, 50 20 Z" fill="url(#lotusG)" />
+            <path d="M50 30 C40 45, 20 55, 30 70 C38 80, 48 75, 50 65 C52 75, 62 80, 70 70 C80 55, 60 45, 50 30 Z" fill="url(#lotusIG)" />
+            <path d="M50 35 C45 45, 35 60, 50 80 C65 60, 55 45, 50 35 Z" fill="url(#lotusCG)" />
+            <path d="M50 72 C43 78, 30 76, 25 80 C35 88, 50 81, 50 81 C50 81, 65 88, 75 80 C70 76, 57 78, 50 72 Z" fill="#295525" />
+        </svg>
+    </div>
+
+    <!-- Hero / Main Greeting Section -->
+    <section id="home" class="hero">
+        
+        <!-- Golden Ganesha Logo Symbol at Top Center -->
+        <svg class="hero-ganesha fade-up" viewBox="0 0 64 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M32 2C26 2, 22 5, 22 9C22 13, 27 15, 29 17C24 18, 17 22, 17 29C17 36, 22 41, 29 41C25 43, 20 47, 20 52C20 58, 26 62, 32 62C38 62, 44 58, 44 52C44 47, 39 43, 35 41C42 41, 47 36, 47 29C47 22, 40 18, 35 17C37 15, 42 13, 42 9C42 5, 38 2, 32 2Z" stroke="#dfb15b" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M32 9C30 9, 29 11, 29 13C29 16, 35 16, 35 13C35 11, 34 9, 32 9Z" fill="#dfb15b"/>
+            <path d="M32 23V37M28 29H36" stroke="#dfb15b" stroke-width="1" stroke-linecap="round"/>
+            <!-- Crown line -->
+            <path d="M29 6H35" stroke="#dfb15b" stroke-width="1.5"/>
+            <!-- Trunk detail -->
+            <path d="M32 41C32 47, 26 49, 26 53C26 56, 29 58, 32 58" stroke="#dfb15b" stroke-width="1.5" stroke-linecap="round"/>
+            <!-- Tusks -->
+            <path d="M26 38L24 39M38 38L40 39" stroke="#dfb15b" stroke-width="1" stroke-linecap="round"/>
+            <!-- Ears -->
+            <path d="M19 23C13 23, 15 33, 20 33M45 23C51 23, 49 33, 44 33" stroke="#dfb15b" stroke-width="1" stroke-linecap="round"/>
+        </svg>
+
+        <!-- Inviting Persons Details (Translated Groom's parents) -->
+        <h3 class="inviter-names fade-up">Sreekumar K &amp; Sheejakumari P R</h3>
+        <p class="inviter-address fade-up">Paramukalil Puthen Veedu, Kaithode (P.O), Nilamel</p>
+        <p class="inviter-phones fade-up">Phone: +91 9656685294, +91 9847959490</p>
+        
+        <span class="salutation fade-up">Dear Family &amp; Friends,</span>
+        <p class="announcement fade-up">We cordially invite you to celebrate the marriage ceremony of our beloved son</p>
+
+        <!-- Groom & Bride Details -->
+        <div class="hero-names-wrap">
+            <h1 class="hero-name fade-up">Sreerag S</h1>
+            <div class="hero-ampersand fade-up">&amp;</div>
+            <h1 class="hero-name fade-up">Reshma R</h1>
+        </div>
+
+        <p class="hero-lineage fade-up">
+            D/O <span>Shri. Somashekharan Nair</span> &amp; <span>Smt. Rajalekshmi R</span><br>
+            Bindu Bhavan, Valiyashala (P.O), Thiruvananthapuram
+        </p>
+
+        <div class="scroll-indicator">
+            <div class="arrows">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#dfb15b" stroke-width="1.5">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </div>
+            <span>Scroll for details</span>
+        </div>
+    </section>
+
+    <!-- Details Card (The main three-column block representing reference details) -->
+    <section id="details" class="details-section">
+        <div class="details-card fade-up">
+            <div class="details-grid">
+                
+                <!-- Date Column -->
+                <div class="details-column">
+                    <h4 class="column-title">Date</h4>
+                    <div class="date-badge">
+                        <div class="calendar-icon">
+                            <div class="cal-header">Aug</div>
+                            <div class="cal-body">27</div>
+                        </div>
+                        <span class="date-text">2026 August 27</span>
+                        <span class="date-day">Thursday</span>
+                    </div>
+                </div>
+                
+                <!-- Venue Column -->
+                <div class="details-column">
+                    <h4 class="column-title">Venue</h4>
+                    <div class="venue-details">
+                        <span class="venue-name">Mount Carmel Convention Centre</span>
+                        <span class="venue-address">Vazhuthacaud, Cotton Hill, Thiruvananthapuram</span>
+                        
+                        <div class="time-badges-container">
+                            <div class="time-badge">Reception: <span>10:45 AM</span></div>
+                            <div class="time-badge">Departure Time: <span>08:30 AM</span></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Muhurtham Column -->
+                <div class="details-column">
+                    <h4 class="column-title">Muhurtham</h4>
+                    <div class="date-badge">
+                        <span class="muhurtham-time">10:55 AM - 11:30 AM</span>
+                        <span class="muhurtham-label">Day Time</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Location Links and Simulated Map QR -->
+            <div class="location-footer">
+                <a href="https://maps.google.com/?q=Mount+Carmel+Convention+Centre+Vazhuthacaud+Thiruvananthapuram" target="_blank" class="map-btn magnetic-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    Navigate on Google Maps
+                </a>
+                
+                <div class="qr-container">
+                    <!-- Custom SVG representing QR Code for clean offline rendering -->
+                    <svg class="qr-code" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="100" height="100" fill="white"/>
+                        <!-- Top-Left Finder Pattern -->
+                        <rect x="10" y="10" width="30" height="30" fill="black"/>
+                        <rect x="15" y="15" width="20" height="20" fill="white"/>
+                        <rect x="20" y="20" width="10" height="10" fill="black"/>
+                        
+                        <!-- Top-Right Finder Pattern -->
+                        <rect x="60" y="10" width="30" height="30" fill="black"/>
+                        <rect x="65" y="15" width="20" height="20" fill="white"/>
+                        <rect x="70" y="20" width="10" height="10" fill="black"/>
+                        
+                        <!-- Bottom-Left Finder Pattern -->
+                        <rect x="10" y="60" width="30" height="30" fill="black"/>
+                        <rect x="15" y="65" width="20" height="20" fill="white"/>
+                        <rect x="20" y="70" width="10" height="10" fill="black"/>
+                        
+                        <!-- Grid Pixels/Data details -->
+                        <rect x="45" y="15" width="5" height="15" fill="black"/>
+                        <rect x="45" y="35" width="10" height="5" fill="black"/>
+                        <rect x="15" y="45" width="15" height="5" fill="black"/>
+                        <rect x="35" y="45" width="5" height="10" fill="black"/>
+                        <rect x="45" y="50" width="10" height="5" fill="black"/>
+                        <rect x="15" y="55" width="5" height="5" fill="black"/>
+                        <rect x="25" y="55" width="10" height="5" fill="black"/>
+                        <rect x="45" y="60" width="5" height="15" fill="black"/>
+                        <rect x="60" y="45" width="15" height="5" fill="black"/>
+                        <rect x="60" y="60" width="5" height="10" fill="black"/>
+                        <rect x="70" y="50" width="5" height="15" fill="black"/>
+                        <rect x="80" y="45" width="10" height="5" fill="black"/>
+                        <rect x="80" y="60" width="5" height="15" fill="black"/>
+                        <rect x="60" y="80" width="25" height="5" fill="black"/>
+                        <rect x="70" y="70" width="5" height="5" fill="black"/>
+                        <rect x="80" y="70" width="10" height="5" fill="black"/>
+                        <rect x="45" y="80" width="5" height="10" fill="black"/>
+                        <rect x="30" y="85" width="10" height="5" fill="black"/>
+                    </svg>
+                    <span class="qr-label">Scan to view location</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Live Countdown Timer -->
+        <countdown-timer target-date="2026-08-27T10:55:00"></countdown-timer>
+
+        <!-- Scratch Card to Reveal Date -->
+        <scratch-card></scratch-card>
+
+        <!-- Message and Family Blessings Closing -->
+        <div class="invitation-footer fade-up">
+            <p class="invite-msg">We cordially invite you with family to grace this auspicious occasion with your presence.</p>
+            
+            <div class="closing-hierarchy">
+                <div class="closing-group">
+                    <span class="closing-title">With Love,</span>
+                    <span class="closing-names">Sreekumar K &amp; Sheejakumari P R</span>
+                </div>
+                <div class="closing-group">
+                    <span class="closing-title">With Compliments,</span>
+                    <span class="closing-names compliments-names">Sreepriya S</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notes Banner (Reception note and gift request) -->
+        <div class="note-container fade-up">
+            <div class="note-item">✦ There will be <span>no reception</span> on the previous day.</div>
+            <div class="note-item">✦ Kindly avoid <span>gifts</span>. Blessings only.</div>
+        </div>
+
+
+
+    </section>
+
+    <!-- Core Interactive Controls Script -->
+    <script src="script.js"></script>
+</body>
+
+</html>
