@@ -396,8 +396,9 @@ body {
 
 .hero-ganesha {
     width: 75px;
-    height: auto;
-    margin-bottom: 2rem;
+    height: 75px;
+    object-fit: contain;
+    margin-bottom: 1.5rem;
     filter: drop-shadow(0 4px 10px rgba(223, 177, 91, 0.15));
 }
 
